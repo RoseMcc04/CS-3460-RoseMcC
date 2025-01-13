@@ -34,12 +34,67 @@
 
 ## Why Discuss Algorithm Design?
 
+- An *algorithm* is a step-by-step process to solve a computational problem; a *data structure* is a tool used to store, organize, update, and retrieve data
+- You cannot talk about one without the other!
+
 ## Programming `!=` Algorithm Design
+
+- Both are valuable skills, but they are not the same!
+- *"Computer Science is no more about computers than astronomy is about telescopes,"* attributed to Dijkstra
+- Programming and software engineering proficiency are important to the success of most programming projects and careers
+- Problem-solving skills and programming skills are not the same, *but they do reinforce each other*!
 
 ## A Good Algorithm (or Data Structure)
 
+- Always terminates and produces a "correct" output
+    - Some algorithms give an answer that is *close enough*
+    - Some randomized algorithms *fail*, but with *vanishingly small probability*
+- Makes *efficient use of resources*
+    - Usually we focus on *runtime* (time is our most precious resource!)
+    - Sometimes we care about *memory usage*, *processor allocation*, *power consumption*, or the use of other shared resources
+- Is usually *simple*! The optimal solution is often...
+    - *elegant*
+    - *easy to explain*
+    - simple to *analyze*
+    - simple to *implement*, *test*, and *debug*
+
 ## *Study: The Stable Marriage Problem*
+
+- Given *n* men and *n* women with preference lists, can we find a *stable marraige*?
+```text
+[1 2 3 4] M1     W1 [1 2 3 4]
+[4 2 3 1] M2     W2 [4 2 3 1]
+[4 3 2 1] M3     W3 [4 3 2 1]
+[4 2 3 1] M4     W4 [4 2 3 1]
+```
+- A *stable marriage* is a matching that contains no *blocking pairs*
+- A *blocking pair* is any man and woman who would *prefer to be with one another* than who they are currently paired with
+    - *Ex.: M2 would rather be with W3 and M3 would rather be with W2*
+- The stable marriage problem in the real world:
+    - matching *students* to *dormitories*
+    - matching *medical students* to *hospital residencies*
+    - matching many *users* to few *servers*
+- Countless interesting variation!
 
 ### *A Stable Marriage Solution*
 
+- W1 accept M1's proposal. M2 proposes to W4.
+- W4 accepts M2's proposal. M3 proposes to W4. 
+- W4 rejects M3's proposal. M3 proposes to W3. 
+- W3 accepts M3's proposal. M4 proposes to W4. 
+- W4 accepts M4's proposal, breaking up with M2. M2 proposes to W2. 
+- W2 accepts M2's proposal, creating a stable marriage.
+
+(1.) Does this algorithm always *terminate*?
+    - 
+(2.) Is it guaranteed to produce a *stable marriage*?
+    - 
+
+- This algorithm is called the *Gale-Shapely algorithm*
+
 ## The Gale-Shapely Algorithm
+
+- Always finds a *stable matching*
+- Always terminates. (How would you prove this?)
+- *Order of proposals* does not matter
+- Optimal for men, sub-optimal for women
