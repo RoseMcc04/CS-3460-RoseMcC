@@ -68,6 +68,21 @@ public static int binary_search(int[] array, int target)
 
 ## Running Times
 
+- Why do we almost always focus on *worst-case performance*?
+
+| **Category**       | **Notation**                  |
+|--------------------|-------------------------------|
+| Constant           | `O(1)`                          |
+| Logarithmic        | `O(lg n)`                       |
+| Linear             | `O(n)`                          |
+| Polynomial         | `O(n²)`, `O(n³)`, `O(n¹⁰⁰)`, `...`    |
+| 😐 Exponential     | `O(2ⁿ)`, `O(3ⁿ)`, `...`             |
+| 🙁 Worse           | `O(n!)`, `O(nⁿ)`, `O(α(n))`, `...`    |
+- Why do not we write the *base* of the logarithm?
+- Yes, but *why* do not they matter?
+    - Converting between bases is just *multiplying by a constant* (`lga(n)` = `lga(b)` * `lgb(n)`)
+    - Usually, lg(n) means lg2(n)
+
 ## Fundamental Data Structures
 
 ### Arrays
