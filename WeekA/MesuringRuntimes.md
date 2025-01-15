@@ -143,12 +143,37 @@ public class LinkedList<T>
 
 ## Abstract Data Types (ADTs)
 
+- A *specification* of a data structure is a list of the operations it needs to support
+- This will end up being the public interface for the implementation of the data structure
+- An *implementation* is a concrete representation of the data structure that fulfills the requirements of the specificatin, either *logically* or *in code*
+
 ### *Example ADT: Dynamic Sequence*
 
 #### Specification
 
+- `insert(x, i)`: insert the object `x` at position `i` in the sequence
+- `remove(i)`: remove the object at position `i`
+- `access(i)`: access the object at position `i`
+- `modify(i, v)`: update the object position `i` to the value `v`
+
 #### Implementation
+
+- How do we implement this?
 
 #### Applications of Sequences
 
+- *Email* inbox, contacts, chats, and calendar
+- *Social media* posts, comments, and notifications
+- Your *Java* code and bytecode
+- *Web* URLs and bookmarks
+- *Media files*, images, audio, videos
+- *Finance:* bank transactions, stock market
+- *Biology:* genomic sequences, EKG data, EEG data
+
 #### Sequences: BigInteger
+
+- Store digits of an integer as a *sequence*
+- Can store extremely *large* numbers
+- Can even store *fixed-point* numbers
+- Storing digits in *reverse* simplifies arithmetic operations
+- Can use *array* for storage, but *linked list* is better
