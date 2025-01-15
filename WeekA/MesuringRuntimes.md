@@ -85,13 +85,59 @@ public static int binary_search(int[] array, int target)
 
 ## Fundamental Data Structures
 
+- Arrays
+- Linked Lists
+
 ### Arrays
+
+- In Java, arrays are dynamically allocated in contiguous memory
+- Arrays are Objects and take O(n) to allocate
+- Array contents are accessed with indexing starting at 0
+```java
+int[] a = new int[5];
+
+// Valid indices for the above array are 0 through 4
+a[4] = 0;
+```
 
 ### Linked Lists
 
+- There are *many variations* on how to set up Linked Lists:
+    - *Additional pointers*
+    - *Doubly linked lists*
+    - *Dummy nodes*
+```java
+public class LinkedList<T> 
+{
+    public class Node<T> 
+    {
+        public Node<T> data;
+        public T data;
+    }
+    public Node<T> head;
+}
+```
+
 #### Linked List Variations
 
+- *Doubly*-Linked Lists
+![Doubly Linked List](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6IAPFb1O5fe5IHWF5WRYyFo0EwPm0-Pex3w&s)
+- *Dummy Nodes*
+![Dummy Nodes](https://media.cheggcdn.com/media/fb0/s282x178/fb068a13-cddd-4d55-96be-f6b8b41c84c7/phpaUWkBj.png)
+
 ### Array vs. Linked List Performance
+
+- Retrieve or opdate any element:
+    - Array: `O(1)`
+    - Linked List: `O(n)`
+- Insert or remove from middle:
+    - Array: `O(n)`
+    - Linked List: `O(1)`
+- Insert or delete from ends:
+    - Array: `O(1)`
+    - Linked List: `O(1)`
+
+- Consider using a *circular* array to avoid overrunning array bounds
 
 ## Abstract Data Types (ADTs)
 
