@@ -3,24 +3,68 @@
 ## Table of Contents
 
 0. [Table of Contents](#table-of-contents)
-1. [Measuring Runtimes]()
-2. [Asymptotic Notation]()
-3. [Running Times]()
-4. [Fundamental Data Structures]()
-    1. [Arrays]()
-    2. [Linked Lists]()
-        1. [Linked List Variations]()
-    3. [Array vs. Linked List Performance]()
-5. [Abstract Data Types (ADTs)]()
-    1. [*Example ADT: Dynamic Sequence*]()
-        1. [Specification]()
-        2. [Implementation]()
-        3. [Applications of Sequences]()
-        4. [Sequences: BigInteger]()
+1. [Measuring Runtimes](#measuring-runtimes)
+2. [Asymptotic Notation](#asymptotic-notation)
+3. [Running Times](#running-times)
+4. [Fundamental Data Structures](#fundamental-data-structures)
+    1. [Arrays](#arrays)
+    2. [Linked Lists](#linked-lists)
+        1. [Linked List Variations](#linked-list-variations)
+    3. [Array vs. Linked List Performance](#array-vs-linked-list-performance)
+5. [Abstract Data Types (ADTs)](#abstract-data-types-adts)
+    1. [*Example ADT: Dynamic Sequence*](#example-adt-dynamic-sequence)
+        1. [Specification](#specification)
+        2. [Implementation](#implementation)
+        3. [Applications of Sequences](#applications-of-sequences)
+        4. [Sequences: BigInteger](#sequences-biginteger)
 
 ## Measuring Runtimes
 
+- Why not use *wall-clock time*?
+    - May not take *input size* into account
+    - May not take *resource allocation* into account
+    - May not take *hardware specs* into account
+    - Could do empirical performance testing
+```java
+public static int linear_search(int[] array, int target) 
+{
+    for (int i = 0; i < array.length; i++) 
+        if (arr[i] == target) return i;
+    return -1;
+}
+```
+```java
+public static int binary_search(int[] array, int target) 
+{
+    int lo = 0, hi = array.length - 1;
+    while (lo < hi) 
+    {
+        int mid = lo + (hi - lo) / 2;
+        if (target < array[mid]) hi = mid - 1;
+        else if (target > array[mid]) lo = mid + 1;
+        else return mid;
+    }
+    return -1;
+}
+```
+- Different inputs make a huge difference
+- Do you want to measure *worst-case*? *Average case*?
+
 ## Asymptotic Notation
+
+- *Linear search*: `O(n)`
+- *Binary search*: `O(lg n)`
+- What does `O(f(n))` mean?
+    - Runtime is exactly `f(n)`? *No.*
+    - Upper-bounded by `f(n)`? 
+    - Upper-bounded by `c x f(n)`? *Close.*
+    - Upper-bounded by `c x f(n)` as `n --> ∞`
+- Provides an upper-bound on running time, ignoring *multiplicative factors*, *constant factors*, and *lower-order terms*
+- Captures what really matters regarding algorithm performance: *How does worst-case performance scale with input size?*
+- There is more than just Big-O notation...
+    - `O(f(n))` is *an upper bound* (`<=`)
+    - `Ω(f(n))` is *a lower bound* (`>=`)
+    - `Θ(f(n))` is upper-bound *and* lower-bound (`=`)
 
 ## Running Times
 
