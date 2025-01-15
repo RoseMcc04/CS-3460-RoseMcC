@@ -121,8 +121,10 @@ public class LinkedList<T>
 #### Linked List Variations
 
 - *Doubly*-Linked Lists
+
 ![Doubly Linked List](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6IAPFb1O5fe5IHWF5WRYyFo0EwPm0-Pex3w&s)
 - *Dummy Nodes*
+
 ![Dummy Nodes](https://media.cheggcdn.com/media/fb0/s282x178/fb068a13-cddd-4d55-96be-f6b8b41c84c7/phpaUWkBj.png)
 
 ### Array vs. Linked List Performance
