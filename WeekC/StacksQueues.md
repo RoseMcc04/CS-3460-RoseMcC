@@ -19,7 +19,6 @@
     1. [Specification](#specification-1)
     2. [Implementation](#implementation-1)
         1. [Queues with Arrays](#queues-with-arrays)
-        2. [Queues with Linked Lists](#queues-with-linked-lists)
     3. [*Queues Example: Scheduling*](#queues-example-scheduling)
     4. [*Queues Example: Simulations*](#queues-example-simulations)
     5. [*Queues Example: Producer-Consumer*](#queues-example-producer-consumer)
@@ -72,6 +71,11 @@ public T pop()
 public void push(T elem) 
 {
     head = new Node<T>(head, elem);
+}
+
+public T peek() 
+{
+    return head.data;
 }
 ```
 
@@ -166,14 +170,63 @@ private static void mystery(int num)
 
 ### Specification
 
+- `enqueue(x)` - insert the object `x` at the back of the queue
+- `dequeue()` - remove and return object from the end of the queue
+- First-in, first-out (*FIFO*)
+- Insertions and deletions happen at opposite ends of the dynamic sequence
+
 ### Implementation
+
+- Underlying Array
+- Underlying Linked List
 
 #### Queues with Arrays
 
-#### Queues with Linked Lists
+```java
+public void enqueue(T elem) 
+{
+    data[back++] = elem;
+}
+
+public T dequeue() 
+{
+    T elem = data[0];
+    for (int i = 1; i <= back; i++)
+        data[i - 1] = data[i];
+    back -= 1;
+    return elem;
+}
+```
+
+![Queue Array Image](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726165642/Queue-Data-structure1.png)
 
 ### *Queues Example: Scheduling*
 
+- *CPU* and *disk scheduling*
+- Queueing jobs or requests
+    - webserver, printer, download manager, etc.
+- Songs or videos in a *playlist*
+- Queues = pipelines
+    - **Amazon**: orders
+    - **Netflix**: packets in the video buffer
+    - **Banking**: pending transactions
+    - **Hospital**: patient wait list
+
 ### *Queues Example: Simulations*
 
+- Simulations are a good way to study complex processes and behavior
+- Very effective way to observe and analyze physical and biological processes
+- *Time-based simulations observe what happens at regular, frequent intervals*
+- *Event-based simulations* place all key events into a queue and execute them in order
+
 ### *Queues Example: Producer-Consumer*
+
+- **Producer-Consumer problem:** One process produces while another process consumers
+- Instructions to device drivers
+- Asynchronous communication between processes and threads
+- Online multiplayer netcode (delay vs rollback)
+- I/O and file streams, handling interrupts
+- Pipes connecting programs and processes
+```shell
+>>> cat file | grep target | wc -l
+```
