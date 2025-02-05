@@ -104,11 +104,18 @@ _____________________
 ## Probe Sequences
 
 - *Linear Probing*:
-    - 
+    - Start at `h(k)`, continue to adjacent cells `h(k) + 1`, `h(k) + 2`, `h(k) + 3`, ...
+    - Great *cache locality*, very sensitive to *unevenly distributed* hash functions, constant *expected* runtimes for all operations, depending on load
+    - Can be shown that with constant load factor, closters have a maximum size of `O(lg n)` *with high probability*
 - *Quadratic Probing*: 
-    - 
+    - Start at `h(k)`, add successive values of a quadratic polynomial
+    - *e.g., `h(k) + 1^2`, `h(k) + 2^2`, `h(k) + 3^2`, ...*
+    - Slightly worse *cache locality*, but better addresses clustering problems
+    - Must carefully choose a quadratic that visits *every possible location* (Table size `m ∈ P` can help)
 - *Double Hashing*:
-    - 
+    - Start at `h1(k)`, add successive multiples of a second hash function `h2(k)`
+    - Certain properties must be true of the relationship between `h1(k)`, `h2(k)`, and `m`
+    - `h1(k)` and `h2(k)` must be *pairwise independent*, and all values of `h2(k)` must be *coprime* with `m`
 
 ## Choosing a Good Hash Function
 
