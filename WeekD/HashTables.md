@@ -119,5 +119,32 @@ _____________________
 
 ## Choosing a Good Hash Function
 
+- Choose a completely *random* hash function?
+- Choose a completely *deterministic* hash function?
+- Our hash function should be *consistent*, yet *unpredictable*
+<br><br>
+- `n` = number of elements
+- `m` = table size
+- `k` = hashable key
+- `C` = maximum key value
+- `a, b` = random constants/values
+<br><br>
+- `h(k)` = `k`mod`m`
+    - known as *modular hash*
+- `h(k)` = `⌊mk/C⌋`
+- `h(k)` = `(ak)`mod`m`
+- `h(k)` = `⌊m(ka - ⌊ka⌋)⌋`
+    - known as *multiplicative hash*, `0 < a < 1`
+- `h(k)` = `(ak + b)`mod`m`
+- `h(k)` = `((ak + b)`mod`p)`mod`m`
+    - `p` must be prime or *coprime* with `m`
+    - *universal hash*, guarantees `O(1)` expected time for `find(k)`
+
 ## What Next?
+
+- How do we choose the *initial size* of the hash table?
+- What do we do if we *run out of space*?
+- How do we hash *complex objects* (strings, files)?
+- Alternative collision resolution: *Cuckoo hashing*
+- Applications of hashing *outside of data structures*
 
