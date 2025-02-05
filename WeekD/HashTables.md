@@ -63,11 +63,52 @@ _____________________
 
 ## Hash Tables
 
+- Like abov e, we maintain an array of size `m`
+- Decide `h()`, a *hash function*
+- Key `k` is stored at index `h(k)`
+    - *Example: `h(k) = (2971*k + 101923) % m`*
+- What happens when `h(k1)` = `h(k2)`?
+    - This is known as a *collision*
+    - This is inevitable as a larger set gets mapped to a smaller set according to the *Pigeonhole Principle*
+
 ## *Collision Resolution - Chaining*
+
+- ![Chaining Diagram](https://he-s3.s3.amazonaws.com/media/uploads/0e2c706.png)
+
+- Each cell is the head of a linked list containing all elements colliding on that cell
+- `find(k)`: search the correct linked list - runtime depends on distribution of keys
+- `insert(k)`: insert at the head of the correct linked list - `O(1)`
+- `remove(k)`: remove from the correct linked list - `O(1) + find`
+- Performance is good if keys are spread *uniformly* across table cells
+- Hashing `n` keys into a table of size `m`, on average, produces lists of size `n/m`. If `m` = `O(n)`, then the length of each individual list is `O(1)` in expectation
+- *Universal hashing* gives an `O(1)` *expected* guarantee for `find(k)`
 
 ## *Collision Resolution - Probing*
 
+- ![Probing Diagram](https://image2.slideserve.com/4862991/hash-table-using-linear-probing-open-addressing-l.jpg)
+
+- In the case of collision, we scan along a *probe sequence*
+- `insert(k)` start at `h(k)`, keep scanning until we find an empty slot
+- `find(k)`: start at `h(k)`, scan the probe sequence until we find the element or reach an empty slot
+- Performance is generally good as long as...
+    - the table is *slightly larger* than `n`
+    - the *hash function* spreads keys unpredictably
+- Collision Resolution:
+    - `insert(k)`: try to store key `k` in `i` in `i` = `h(k)` (if unoccupied). Scan along the probe sequence as long as `h(k)` is greater to or equal to that of the current element. Once we reach an empty spot, or an element with a larger hash value, store it, and if necessary, displace the element at that location
+    - `find(k)`: Scan along the probe sequence until we either find the element, find an empty spot, or find an element with a larger hash value
+    - `remove(k)`: Perform `find(k)`, and after removing the element, adjust elements toward the left to fill the gaps
+- All operations take `O(1)` time, as long as the table is large enough (slightly larger than `n`), and we use a good hash function that spreads values out
+- Our choice of *probe sequence* matters too!
+- Great *cache performance* (compared to chaining)
+
 ## Probe Sequences
+
+- *Linear Probing*:
+    - 
+- *Quadratic Probing*: 
+    - 
+- *Double Hashing*:
+    - 
 
 ## Choosing a Good Hash Function
 
